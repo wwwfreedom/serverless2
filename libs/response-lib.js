@@ -1,3 +1,4 @@
+// This will manage building the response objects for both success and failure cases with the proper HTTP status code and headers.
 export function success(body) {
   return buildResponse(200, body);
 }
@@ -9,6 +10,7 @@ export function failure(body) {
 function buildResponse(statusCode, body) {
   return {
     statusCode: statusCode,
+    // Set response headers to enable CORS (Cross-Origin Resource Sharing)
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Credentials": true
